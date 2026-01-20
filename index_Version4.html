@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Square Root Speed Trainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container" role="main">
+    <header class="header">
+      <h1>Square Root Speed Trainer</h1>
+      <p class="subtitle">Press Generate (or press Space) → see the square → type the 2‑digit root and press Enter. Correct answer stops the timer.</p>
+    </header>
+
+    <section class="center">
+      <button id="generateBtn" class="big-btn" aria-label="Generate your number">Generate your number</button>
+
+      <div id="roundArea" class="round-area hidden" aria-live="polite">
+        <div class="square-number" id="squareNumber" aria-hidden="false"></div>
+
+        <div class="timer-row">
+          <div class="timer" id="timer">0.0 s</div>
+        </div>
+
+        <form id="answerForm" autocomplete="off">
+          <input id="answerInput" class="answer-input" inputmode="numeric" pattern="[0-9]*" maxlength="2"
+                 placeholder="Type the 2-digit number" aria-label="Type the two-digit number"/>
+        </form>
+
+        <div id="resultMessage" class="result-message" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="history" aria-labelledby="historyHeading">
+      <h2 id="historyHeading">Attempt Log</h2>
+      <ul id="logList" class="log-list" aria-live="polite"></ul>
+
+      <div class="controls">
+        <button id="exportBtn" class="small-btn">Export Save Code</button>
+        <button id="importBtn" class="small-btn">Import Save Code</button>
+        <button id="clearAllBtn" class="small-btn danger">Clear all logs</button>
+      </div>
+
+      <div id="exportArea" class="export-area hidden" aria-live="polite">
+        <label for="exportText">Save code (copy & paste to another device):</label>
+        <textarea id="exportText" readonly></textarea>
+        <div class="export-actions">
+          <button id="copyExportBtn" class="small-btn">Copy</button>
+          <button id="closeExportBtn" class="small-btn">Close</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Random two-digit integers are used (10–99). Logs persist locally and can be exported/imported via the save code.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
